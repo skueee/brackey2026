@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ci386c5qtjhjb"]
+
+[ext_resource type="PackedScene" uid="uid://breosxps5ixtm" path="res://assets/maindoor.glb" id="1_eu7je"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(2.1299438, 4.014099, 0.4533081)
+
+[node name="maindoor" type="StaticBody3D" unique_id=1996576576]
+
+[node name="maindoor" parent="." unique_id=118913933 instance=ExtResource("1_eu7je")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=707035266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001373291, -0.031585693, 0.1031189)
+shape = SubResource("BoxShape3D_mjfn4")
