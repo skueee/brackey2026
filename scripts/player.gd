@@ -47,11 +47,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	%InteractText.hide()
 	if %InteractionCast.is_colliding():
-		print("I see something !")
 		var target = %InteractionCast.get_collider()
 		if target.has_method("interact"):
-			("I can interact !")
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
-				print("Here we go, I interacted")
 				target.interact()

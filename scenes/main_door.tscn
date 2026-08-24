@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ql4hpth2club"]
+
+[ext_resource type="PackedScene" uid="uid://breosxps5ixtm" path="res://assets/maindoor.glb" id="1_eb4o0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(2.098877, 4.013672, 0.46176147)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnlm0"]
+size = Vector3(0.2355957, 0.0625, 0.107788086)
+
+[node name="MainDoor" type="StaticBody3D" unique_id=1358464048]
+
+[node name="maindoor" parent="." unique_id=118913933 instance=ExtResource("1_eb4o0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=847627851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207031, -0.020507813, 0.10826111)
+shape = SubResource("BoxShape3D_mjfn4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=558959826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7484603, -0.059443593, 0.3932495)
+shape = SubResource("BoxShape3D_dnlm0")

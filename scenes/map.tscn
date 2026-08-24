@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://dd2ddvbstoodt"]
 
 [ext_resource type="PackedScene" uid="uid://c6otbyxk1lx2u" path="res://assets/map.glb" id="1_gldc4"]
-[ext_resource type="PackedScene" uid="uid://breosxps5ixtm" path="res://assets/maindoor.glb" id="2_0cso3"]
-[ext_resource type="PackedScene" uid="uid://dr1x2a4c5es11" path="res://assets/door.glb" id="3_2klcf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
 size = Vector3(1.2099609, 4.017334, 0.40551758)
@@ -133,12 +131,3 @@ shape = SubResource("BoxShape3D_wbpbn")
 [node name="floor" type="CollisionShape3D" parent="." unique_id=190182168]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8111267, -0.39074707, 0.42904663)
 shape = SubResource("BoxShape3D_potab")
-
-[node name="MainDoor" parent="." unique_id=118913933 instance=ExtResource("2_0cso3")]
-transform = Transform3D(-1, 0, 5.323755e-05, 0, 1, 0, -5.323755e-05, 0, -1, 2.959011, 1.989678, 6.4381585)
-
-[node name="DoorToilets" parent="." unique_id=730169134 instance=ExtResource("3_2klcf")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.7072325, 1.9373175, 1.2977295)
-
-[node name="DoorKitchen" parent="." unique_id=1220066824 instance=ExtResource("3_2klcf")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.8119535, 1.9504079, -1.3432388)

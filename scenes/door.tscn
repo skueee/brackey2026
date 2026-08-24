@@ -1,18 +1,29 @@
 [gd_scene format=3 uid="uid://cn0pbgffmwyav"]
 
 [ext_resource type="PackedScene" uid="uid://dr1x2a4c5es11" path="res://assets/door.glb" id="1_hpvv5"]
-[ext_resource type="Script" uid="uid://corpry0nfkuuv" path="res://scenes/door.gd" id="1_uvdjg"]
+[ext_resource type="Script" uid="uid://corpry0nfkuuv" path="res://scripts/door.gd" id="1_uvdjg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
-size = Vector3(1.9536743, 3.9379883, 0.5325928)
+size = Vector3(1.9804688, 3.9726563, 0.5722656)
 
-[node name="door" type="StaticBody3D" unique_id=1438206367]
+[sub_resource type="BoxShape3D" id="BoxShape3D_potab"]
+size = Vector3(0.23486328, 0.081604004, 0.107299805)
+
+[node name="Door" type="StaticBody3D" unique_id=543797862]
 collision_layer = 3
 script = ExtResource("1_uvdjg")
 
 [node name="door" parent="." unique_id=730169134 instance=ExtResource("1_hpvv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98560333, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96969426, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489217413]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9834976, 0.0041503906, -0.004211426)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1167524235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96969426, 0.0087890625, -0.0087890625)
 shape = SubResource("BoxShape3D_mjfn4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1875774928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7172712, 0.06674194, 0.33170575)
+shape = SubResource("BoxShape3D_potab")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=2024970976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7221863, 0.06674194, -0.3469804)
+shape = SubResource("BoxShape3D_potab")
