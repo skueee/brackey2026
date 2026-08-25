@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://crvioi4ob8xt1"]
 
+[ext_resource type="Script" uid="uid://b7nhlqrdf2qkd" path="res://scripts/game.gd" id="1_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dd2ddvbstoodt" path="res://scenes/map.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c74ksdhfjhvtd" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ql4hpth2club" path="res://scenes/main_door.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cn0pbgffmwyav" path="res://scenes/door.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://2c7jcjr3wri1" path="res://scenes/toilet.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://c3dhyg717wedy" path="res://assets/toilets-frame.glb" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cmc138a4vua3q" path="res://scenes/lightbulb.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b10540qe4jw4t" path="res://assets/armchair.glb" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://bgiiltvvongi1" path="res://assets/tv.glb" id="9_0tnpc"]
 
 [node name="Game" type="Node3D" unique_id=856012762]
+script = ExtResource("1_vtaks")
 
 [node name="map" parent="." unique_id=967062836 instance=ExtResource("1_yqjtg")]
 
@@ -23,6 +30,25 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.7
 
 [node name="MainDoor" parent="." unique_id=1358464048 instance=ExtResource("4_iywne")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.98041, 2.0242095, 6.472859)
+
+[node name="toilet" parent="." unique_id=277518559 instance=ExtResource("5_iywne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.021408, -0.004638672, -2.202924)
+
+[node name="ToiletsFrame" parent="." unique_id=29138320 instance=ExtResource("6_p57ef")]
+transform = Transform3D(-0.5487974, -4.7977395e-08, -2.3988697e-08, 2.3988697e-08, 1.0485792e-15, -0.5487974, 4.7977395e-08, -0.5487974, 1.0485792e-15, 7.7956276, 3.2342277, 2.6971622)
+
+[node name="lightbulb" parent="." unique_id=1684636636 instance=ExtResource("7_u5sy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.0250945, -4)
+
+[node name="armchair" parent="." unique_id=1618154140 instance=ExtResource("8_gee14")]
+transform = Transform3D(-0.6111266, 0, -5.3426387e-08, 0, 0.6111266, 0, 5.3426387e-08, 0, -0.6111266, -1.7858963, 0.26276618, -0.60442877)
+
+[node name="tv" parent="." unique_id=854579743 instance=ExtResource("9_0tnpc")]
+transform = Transform3D(0.54213744, 0, 0, 0, 0.54213744, 0, 0, 0, 0.54213744, -1.8006163, 0.9917176, -4.4048705)
+
+[node name="GameTimer" type="Timer" parent="." unique_id=714791484]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 
 [editable path="map"]
 [editable path="map/map"]

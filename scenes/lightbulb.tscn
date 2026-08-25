@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cmc138a4vua3q"]
+
+[ext_resource type="PackedScene" uid="uid://5dql7r2lqg0o" path="res://assets/lightbulb.glb" id="1_x8a88"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mjfn4"]
+radius = 0.3901181
+
+[node name="lightbulb" type="StaticBody3D" unique_id=1684636636]
+
+[node name="lightbulb" parent="." unique_id=1478452539 instance=ExtResource("1_x8a88")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1672011330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023368955, 0)
+shape = SubResource("SphereShape3D_mjfn4")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1089545032]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.1414025, 0)
+light_color = Color(1, 1, 0.92156863, 1)
+light_energy = 16.0
+light_indirect_energy = 2.387
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+area_size = Vector2(20.93733, 20.065393)

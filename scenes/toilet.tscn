@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://2c7jcjr3wri1"]
+
+[ext_resource type="PackedScene" uid="uid://x15xy2ejlbse" path="res://assets/toilet.glb" id="1_ujtcc"]
+[ext_resource type="Script" uid="uid://bspfqvg1l5v8f" path="res://scripts/toilet.gd" id="2_yyxms"]
+[ext_resource type="Script" uid="uid://c08dp0kydt0r7" path="res://scenes/toilet-body.gd" id="3_5rkpo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(2.0075684, 1.6316833, 2.4622192)
+
+[sub_resource type="Animation" id="Animation_5rkpo"]
+resource_name = "Close"
+length = 0.36666667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Lid")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -6.302369e-16, 2.510452e-08, 2.510452e-08, 1, 0.33333334, 1, 0.7009448, 0, 0, 0.71321553)
+
+[sub_resource type="Animation" id="Animation_jh3ps"]
+resource_name = "Open"
+length = 0.36666667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Lid")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.7009448, 0, 0, 0.71321553, 0.36666667, 1, -6.302369e-16, 2.510452e-08, 2.510452e-08, 1)
+
+[sub_resource type="Animation" id="Animation_vwyy6"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Lid")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -6.302369e-16, 2.510452e-08, 2.510452e-08, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rr3v"]
+_data = {
+&"Close": SubResource("Animation_5rkpo"),
+&"Open": SubResource("Animation_jh3ps"),
+&"RESET": SubResource("Animation_vwyy6")
+}
+
+[node name="toilet" unique_id=277518559 instance=ExtResource("1_ujtcc")]
+script = ExtResource("2_yyxms")
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1604985805) index="0" unique_id=10055452]
+unique_name_in_owner = true
+bones/1/scale = Vector3(1, 0.9999999, 0.9999999)
+
+[node name="ToiletBody" type="StaticBody3D" parent="." index="1" unique_id=397380959]
+collision_layer = 3
+script = ExtResource("3_5rkpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToiletBody" index="0" unique_id=2006979642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032958984, 0.35346985, 0.0031433105)
+shape = SubResource("BoxShape3D_mjfn4")
+
+[node name="ToiletAnimation" type="AnimationPlayer" parent="." index="2" unique_id=231498939]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_5rr3v")
