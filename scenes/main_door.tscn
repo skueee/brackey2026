@@ -10,6 +10,7 @@ size = Vector3(2.098877, 4.013672, 0.46176147)
 size = Vector3(0.2355957, 0.0625, 0.107788086)
 
 [node name="MainDoor" type="StaticBody3D" unique_id=1358464048]
+collision_layer = 3
 script = ExtResource("1_n3uea")
 
 [node name="maindoor" parent="." unique_id=118913933 instance=ExtResource("1_eb4o0")]

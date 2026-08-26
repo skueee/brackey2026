@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://j2i0s1c77lgx"]
+
+[ext_resource type="Script" uid="uid://dx64evyf3xd5c" path="res://hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://d3wlkxesgitnf" path="res://assets/heart.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://bg3dd0qbsqgig" path="res://assets/fork.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://dpmuqyyil0hay" path="res://assets/water.png" id="4_6fi6k"]
+
+[sub_resource type="SystemFont" id="SystemFont_5ysmq"]
+font_names = PackedStringArray("SpaceMono Nerd Font")
+font_weight = 650
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pdws"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_mjfn4"]
+HBoxContainer/constants/separation = 16
+ProgressBar/fonts/font = SubResource("SystemFont_5ysmq")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_hd3ao")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_5pdws")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.60784316, 0.6784314, 0.7176471, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_047uy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.35686275, 0.43137255, 0.88235295, 1)
+corner_detail = 1
+
+[node name="HUD" type="CanvasLayer" unique_id=1894029955]
+script = ExtResource("1_ahhtf")
+
+[node name="TextDisplay" type="BoxContainer" parent="." unique_id=1477438546]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = 146.0
+offset_right = 70.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Text" type="Label" parent="TextDisplay" unique_id=1678159690]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lorem Ipsum"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Visibility" type="Timer" parent="TextDisplay/Text" unique_id=700159870]
+
+[node name="StatsBar" type="VBoxContainer" parent="." unique_id=1665454720]
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 343.0
+offset_bottom = 95.0
+
+[node name="Health" type="HBoxContainer" parent="StatsBar" unique_id=1153728780]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_mjfn4")
+
+[node name="HealthIcon" type="TextureRect" parent="StatsBar/Health" unique_id=447740041]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="StatsBar/Health" unique_id=355236478]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_6fi6k")
+step = 1.0
+value = 100.0
+
+[node name="Hunger" type="HBoxContainer" parent="StatsBar" unique_id=374507118]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_mjfn4")
+
+[node name="HungerIcon" type="TextureRect" parent="StatsBar/Hunger" unique_id=2143350502]
+layout_mode = 2
+texture = ExtResource("3_5ysmq")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HungerBar" type="ProgressBar" parent="StatsBar/Hunger" unique_id=1137477591]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.60784316, 0.6784314, 0.7176471, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_uo2fv")
+step = 1.0
+value = 100.0
+
+[node name="Drink" type="HBoxContainer" parent="StatsBar" unique_id=282597110]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_mjfn4")
+
+[node name="DrinkIcon" type="TextureRect" parent="StatsBar/Drink" unique_id=441647869]
+layout_mode = 2
+texture = ExtResource("4_6fi6k")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="DrinkBar" type="ProgressBar" parent="StatsBar/Drink" unique_id=2092601082]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.35686275, 0.43137255, 0.88235295, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_047uy")
+step = 1.0
+value = 100.0
+
+[node name="MoneyLabel" type="Label" parent="StatsBar" unique_id=1867553783]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2879999, 0.72, 0, 1)
+text = "100$"
+
+[connection signal="timeout" from="TextDisplay/Text/Visibility" to="." method="_on_visibility_timeout"]

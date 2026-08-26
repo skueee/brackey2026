@@ -2,6 +2,10 @@ extends CharacterBody3D
 
 var input_direction : Vector2
 var speed : float = 5.0
+var health : int = 100
+var hunger : int = 100
+var drink : int = 100
+var money : int = 100
 
 @export var look_sensitivity: float = 0.005
 @export var acceleration: float = 60.0
@@ -45,10 +49,34 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta):
-	%InteractText.hide()
+	%HUD.HideText(0)
 	if %InteractionCast.is_colliding():
 		var target = %InteractionCast.get_collider()
 		if target.has_method("interact"):
-			%InteractText.show()
+			%HUD.DisplayText("Press E to interact", 0)
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
+
+func dealDamage(damage: int):
+	health -= damage
+
+func dealHunger(damage: int):
+	hunger -= damage
+	
+func dealDrink(damage: int):
+	drink -= damage
+	
+func takeMoney(damage: int):
+	money -= damage
+
+func addMoney(money_to_add: int):
+	money += money_to_add
+
+func healDamage(heal: int):
+	health += heal
+
+func healHunger(heal: int):
+	hunger += heal
+	
+func healDrink(heal: int):
+	drink += heal
