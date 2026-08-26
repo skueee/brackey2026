@@ -53,7 +53,10 @@ func _process(delta):
 	if %InteractionCast.is_colliding():
 		var target = %InteractionCast.get_collider()
 		if target.has_method("interact"):
-			%HUD.DisplayText("Press E to interact", 0)
+			if "interact_label" in target:
+				%HUD.DisplayText(target.interact_label, 0)
+			else:
+				%HUD.DisplayText("Press E to interact", 0)
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
 
