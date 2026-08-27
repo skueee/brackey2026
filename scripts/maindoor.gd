@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 var someone_is_there : bool = false
+var current_person_id : int
 
 func interact():
 	if someone_is_there:
