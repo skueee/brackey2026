@@ -45,7 +45,7 @@ func executeCharacter(id):
 		executeActions(character.next_action[0], character)
 	else:
 		executeActions(character.next_action[1], character)
-	
+
 func executeActions(actions: Array, character):
 	var dialog = get_node("/root/Game/Dialog")
 	var player = get_node("/root/Game/Player")
@@ -57,7 +57,7 @@ func executeActions(actions: Array, character):
 		elif i[0] == "function":
 			Callable.create(character, i[1]).call
 		elif i[0] == "give_object":
-			pass
+			player.addToInventory(i[1])
 		elif i[0] == "change_health":
 			if i[1] > 0:
 				player.healDamage(i[1])

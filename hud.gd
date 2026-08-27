@@ -72,3 +72,28 @@ func _process(_delta: float) -> void:
 
 	if current_money != int(%MoneyLabel.text.trim_suffix("$")):
 		updateMoneyLabel(current_money, get_node("/root/Game/Player").money)
+		
+		
+# Inventory management
+func updateInventory(inventory: Array):
+	
+	var counts: Dictionary = {}
+	for i in inventory:
+		counts[i] = counts.get(i, 0) + 1
+	
+	var inventory_lines : Array
+	if inventory.size() > 0:
+		for i in counts:
+			var freq = counts[i]
+			var ObjectScript = load("res://scripts/objects/" + str(i) + ".gd")
+			var object = ObjectScript.new()
+			inventory_lines.append("- " + object.object_name + " (x" + str(freq) + ")")
+
+		var inventory_text : String
+		for i in inventory_lines:
+			inventory_text += String(i) + "\n"
+		
+		%InventoryLabel.text = inventory_text
+		$Inventory.show()
+	else:
+		$Inventory.hide()

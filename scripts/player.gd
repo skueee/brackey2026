@@ -6,6 +6,7 @@ var health : int = 100
 var hunger : int = 100
 var drink : int = 100
 var money : int = 100
+var inventory : Array
 
 @export var look_sensitivity: float = 0.005
 @export var acceleration: float = 60.0
@@ -48,7 +49,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	%HUD.HideText(0)
 	if %InteractionCast.is_colliding():
 		var target = %InteractionCast.get_collider()
@@ -83,3 +84,7 @@ func healHunger(heal: int):
 	
 func healDrink(heal: int):
 	drink += heal
+
+func addToInventory(object: int):
+	inventory.append(object)
+	%HUD.updateInventory(inventory)

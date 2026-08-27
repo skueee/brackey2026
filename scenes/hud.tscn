@@ -8,6 +8,7 @@
 [sub_resource type="SystemFont" id="SystemFont_5ysmq"]
 font_names = PackedStringArray("SpaceMono Nerd Font")
 font_weight = 650
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
 bg_color = Color(0, 0, 0, 1)
@@ -53,6 +54,12 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.35686275, 0.43137255, 0.88235295, 1)
 corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_dnlm0"]
+default_font_size = 21
+
+[sub_resource type="Theme" id="Theme_potab"]
+default_font_size = 13
 
 [node name="HUD" type="CanvasLayer" unique_id=1894029955]
 script = ExtResource("1_ahhtf")
@@ -154,5 +161,27 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2879999, 0.72, 0, 1)
 text = "100$"
+
+[node name="Inventory" type="VBoxContainer" parent="." unique_id=258973939]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -309.0
+offset_bottom = 649.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="Inventory" unique_id=846585969]
+layout_mode = 2
+theme = SubResource("Theme_dnlm0")
+text = "Inventory"
+
+[node name="InventoryLabel" type="Label" parent="Inventory" unique_id=266039682]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_potab")
+text = "Never gon"
 
 [connection signal="timeout" from="TextDisplay/Text/Visibility" to="." method="_on_visibility_timeout"]
