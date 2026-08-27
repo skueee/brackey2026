@@ -14,7 +14,6 @@ var question_inactive_color : Color = Color("4f4f4f")
 
 @onready var _speaker : Label = $Dialog/VBoxContainer/SpeakerBox/Label
 @onready var _dialogue : RichTextLabel = $Dialog/VBoxContainer/TextBox/Text
-@onready var _continue : Control = $Dialog/VBoxContainer/TextBox/Continue
 
 @onready var _question : Label = $Choice/VBoxContainer/Question/QuestionLabel
 @onready var _first_choice : Label = $Choice/VBoxContainer/Choice/HBoxContainer/FirstChoiceLabel

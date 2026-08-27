@@ -9,6 +9,8 @@ var nextHunger: int = gametime - playerHungerTimeout
 var playerThirstTimeout: int = 25
 var nextThirst: int = gametime - playerThirstTimeout
 
+var nextDamage: int = gametime - 1
+
 func init_game(time):
 	var unit_duration: float = snapped((10.0 * 60.0)/10080 * time, 0.01)
 	$"GameTimer".wait_time = unit_duration
@@ -27,6 +29,9 @@ func _process(_delta):
 		dealThirstToPlayer()
 	elif gametime == nextHunger:
 		dealHungerToPlayer()
+	if gametime == nextDamage and $"Player".hunger <= 0 or gametime == nextDamage and $"Player".drink <= 0:
+		dealDamageWhenNeeded()
+		nextDamage -= 1
 
 func dealHungerToPlayer():
 	$"Player".dealHunger(randi_range(5, 20))
@@ -35,7 +40,17 @@ func dealHungerToPlayer():
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	$"Player".dealDrink(randi_range(10, 25))
+	# $"Player".dealDrink(randi_range(10, 25))
+	$"Player".dealDrink(110)
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout
+	
+func dealDamageWhenNeeded():
+	var damage : int
+	if $"Player".drink <= 0:
+		damage += 10
+	if $"Player".hunger <= 0:
+		damage += 10
+	$"Player".dealDamage(damage)
+	
