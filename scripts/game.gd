@@ -29,13 +29,13 @@ func _process(_delta):
 		dealHungerToPlayer()
 
 func dealHungerToPlayer():
-	$"Player".dealHunger(15)
+	$"Player".dealHunger(randi_range(5, 20))
 	if playerHungerTimeout < 15:
 		playerHungerTimeout -= 2
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	$"Player".dealDrink(10)
+	$"Player".dealDrink(randi_range(10, 25))
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout
