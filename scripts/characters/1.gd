@@ -27,6 +27,8 @@ var next_action = [
 		["give_object", objects.pick_random()],
 		["give_object", objects.pick_random()],
 		["give_object", objects.pick_random()],
+		["give_object", objects.pick_random()],
+		["give_object", objects.pick_random()],
 		["dialog", ["See ya !"]]
 	],
 	[

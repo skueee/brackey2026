@@ -37,13 +37,13 @@ func _process(_delta):
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 
 func dealHungerToPlayer():
-	$"Player".dealHunger(randi_range(20, 50))
+	$"Player".dealHunger(randi_range(5, 15))
 	if playerHungerTimeout < 15:
 		playerHungerTimeout -= 2
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	$"Player".dealDrink(randi_range(15, 35))
+	$"Player".dealDrink(randi_range(10, 25))
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout
