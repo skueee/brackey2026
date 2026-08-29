@@ -9,9 +9,7 @@ var nextHunger: int = gametime - playerHungerTimeout
 var playerThirstTimeout: int = 25
 var nextThirst: int = gametime - playerThirstTimeout
 
-var nextDamage: int = gametime - 1
-
-var nextSpawn = gametime - randi_range(10, 15)
+var nextSpawn = gametime - randi_range(7, 12)
 
 func init_game(time):
 	var unit_duration: float = snapped((10.0 * 60.0)/10080 * time, 0.01)
@@ -43,7 +41,7 @@ func dealHungerToPlayer():
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	$"Player".dealDrink(randi_range(10, 25))
+	$"Player".dealDrink(randi_range(10, 15))
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout
