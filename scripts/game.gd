@@ -32,6 +32,8 @@ func _process(_delta):
 	if gametime == nextDamage and $"Player".hunger <= 0 or gametime == nextDamage and $"Player".drink <= 0:
 		dealDamageWhenNeeded()
 		nextDamage -= 1
+	if gametime <= 0:
+		get_tree().change_scene_to_file("res://scenes/end.tscn")
 
 func dealHungerToPlayer():
 	$"Player".dealHunger(randi_range(5, 20))

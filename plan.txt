@@ -27,6 +27,4 @@ DAYS - pass in 30 or 15 minutes (depending on the start settings). 7 days.
 
 Microwave - Microwave food
 Fridge - Conservate food but it perishes after 2 days
-cut thing - Cut things
-Poele - Cook shit
 Sink - -5$ for water glass (restores 1/2 water bar

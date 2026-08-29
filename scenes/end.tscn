@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b1fetgdxjxmq3"]
+
+[ext_resource type="Script" uid="uid://ra0tcmc0egi0" path="res://scripts/end.gd" id="1_mwn6m"]
+
+[sub_resource type="SystemFont" id="SystemFont_potab"]
+font_names = PackedStringArray("Open Sans")
+font_weight = 750
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
+font = SubResource("SystemFont_potab")
+font_size = 33
+
+[node name="End" type="Control" unique_id=505589707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwn6m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2021703374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1734333786]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 54.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=854423837]
+layout_mode = 2
+text = "You survived !"
+label_settings = SubResource("LabelSettings_mjfn4")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=357406104]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Great job !"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1843788356]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Menu" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=626506698]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=691447605]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
