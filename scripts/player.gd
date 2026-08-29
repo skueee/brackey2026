@@ -93,3 +93,4 @@ func addToInventory(object: int):
 	
 func removeFromInventory(object: int):
 	inventory.erase(object)
+	%HUD.updateInventory(inventory)

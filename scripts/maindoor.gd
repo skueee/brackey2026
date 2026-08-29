@@ -1,10 +1,13 @@
 extends StaticBody3D
 
+signal lockToilets
+signal reduceSinkPrice
+
 var someone_is_there : bool = false
 var current_person_id : int
 
 # Group 2 as way fewer chances to get selected
-var group1 : Array = [1]
+var group1 : Array = [1, 2, 3, 4, 5, 6, 7]
 var group2 : Array
 
 func selectRandomPerson():
@@ -55,24 +58,30 @@ func executeActions(actions: Array, character):
 			dialog.displayText(i[1], character.character_name, true)
 			await dialog.dialog_finished
 		elif i[0] == "function":
-			Callable.create(character, i[1]).call
+			i[1].call(player)
 		elif i[0] == "give_object":
 			player.addToInventory(i[1])
 		elif i[0] == "change_health":
 			if i[1] > 0:
 				player.healDamage(i[1])
 			else:
-				player.dealDamage(i[1])
+				player.dealDamage(-i[1])
 		elif i[0] == "change_hungry":
 			if i[1] > 0:
-				player.healHungry(i[1])
+				player.healHunger(i[1])
 			else:
-				player.dealHungry(i[1])
+				player.dealHunger(-i[1])
 		elif i[0] == "change_drink":
 			if i[1] > 0:
 				player.healDrink(i[1])
 			else:
-				player.dealDrink(i[1])
+				player.dealDrink(-i[1])
+		elif i[0] == "give_money":
+			player.addMoney(i[1])
+		elif i[0] == "take_money":
+			player.takeMoney(i[1])
+		elif i[0] == "emit_signal":
+			emit_signal(i[1])
 	
 func _ready() -> void:
 	enablePerson()

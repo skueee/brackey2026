@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://b7nhlqrdf2qkd" path="res://scripts/game.gd" id="1_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dd2ddvbstoodt" path="res://scenes/map.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c74ksdhfjhvtd" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://r81v7qykbjbu" path="res://scripts/toilet_door.gd" id="4_ir15t"]
 [ext_resource type="PackedScene" uid="uid://ql4hpth2club" path="res://scenes/main_door.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://cn0pbgffmwyav" path="res://scenes/door.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dr1x2a4c5es11" path="res://assets/door.glb" id="5_ca42v"]
 [ext_resource type="PackedScene" uid="uid://2c7jcjr3wri1" path="res://scenes/toilet.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://c3dhyg717wedy" path="res://assets/toilets-frame.glb" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cmc138a4vua3q" path="res://scenes/lightbulb.tscn" id="7_u5sy4"]
@@ -14,19 +16,39 @@
 [ext_resource type="PackedScene" uid="uid://fr0sjtacmfb4" path="res://scenes/sink.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://gi0c3vnvwin0" path="res://scenes/cooking_table.tscn" id="13_kvuet"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(1.9804688, 3.9726563, 0.5722656)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_potab"]
+size = Vector3(0.23486328, 0.081604004, 0.107299805)
+
 [node name="Game" type="Node3D" unique_id=856012762]
 script = ExtResource("1_vtaks")
 
 [node name="map" parent="." unique_id=967062836 instance=ExtResource("1_yqjtg")]
 
-[node name="ceilling" parent="map/map" parent_id_path=PackedInt32Array(967062836, 817025202) index="0" unique_id=641917325]
-visible = false
-
 [node name="Player" parent="." unique_id=528111196 instance=ExtResource("2_lnu2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8535767, 1.6314697, 4.8269043)
 
-[node name="ToiletDoor" parent="." unique_id=543797862 instance=ExtResource("4_lbhrr")]
+[node name="ToiletDoor" type="StaticBody3D" parent="." unique_id=543797862]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.6996574, 1.9136591, 2.2817588)
+collision_layer = 3
+script = ExtResource("4_ir15t")
+
+[node name="door" parent="ToiletDoor" unique_id=730169134 instance=ExtResource("5_ca42v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96969426, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ToiletDoor" unique_id=1167524235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.96969426, 0.0087890625, -0.0087890625)
+shape = SubResource("BoxShape3D_mjfn4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ToiletDoor" unique_id=1875774928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7172712, 0.06674194, 0.33170575)
+shape = SubResource("BoxShape3D_potab")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ToiletDoor" unique_id=2024970976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7221863, 0.06674194, -0.3469804)
+shape = SubResource("BoxShape3D_potab")
 
 [node name="KitchenDoor" parent="." unique_id=766028153 instance=ExtResource("4_lbhrr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.767532, 1.8479452, -0.34703124)
@@ -53,13 +75,12 @@ transform = Transform3D(0.54213744, 0, 0, 0, 0.54213744, 0, 0, 0, 0.54213744, -1
 
 [node name="Dialog" parent="." unique_id=1707710170 instance=ExtResource("11_kvpfn")]
 
-[node name="sink" parent="." unique_id=406162830 instance=ExtResource("12_dinhu")]
+[node name="Sink" parent="." unique_id=406162830 instance=ExtResource("12_dinhu")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.127735, 0.0013253689, -4.5077505)
 
 [node name="CookingTable" parent="." unique_id=366976154 instance=ExtResource("13_kvuet")]
 transform = Transform3D(-1, 0, 5.323755e-05, 0, 1, 0, -5.323755e-05, 0, -1, -8.669621, -0.004637718, 4.0777893)
 
+[connection signal="lockToilets" from="MainDoor" to="ToiletDoor" method="_on_main_door_lock_toilets"]
+[connection signal="reduceSinkPrice" from="MainDoor" to="Sink" method="_on_main_door_reduce_sink_price"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
-
-[editable path="map"]
-[editable path="map/map"]

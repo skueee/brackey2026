@@ -12,8 +12,11 @@ var dialogues = ["Hey little man", "I see you are hungry", "Do you want some coo
 # Index 0 is for yes, index 1 for no
 # Each index except to have an array with arrays with two values : the type of thing to call and what to do :
 # dialog : dialogues (array)
-# function : function name (string)
+# function : function (callable, needs to take player as an arguments)
+# emit_signal : signal
 # give_object : object id (int)
+# give_money : money (int)
+# take_money : money (int)
 # change_health : damage (int)
 # change_hungry : damage (int)
 # change_drink : damage (int)

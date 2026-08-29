@@ -14,3 +14,13 @@ func interact():
 		interact_label = "Press E to drink water\n(" + str(price) + "$)"
 	else:
 		HUD.DisplayText("You are not thirsty enough", 1, 2.0)
+
+func reducePrice():
+	var reduce = randi_range(1, price)
+	price -= reduce
+	interact_label = "Press E to drink water\n(" + str(price) + "$)"
+	print(price)
+
+
+func _on_main_door_reduce_sink_price() -> void:
+	reducePrice()
