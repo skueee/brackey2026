@@ -85,6 +85,15 @@ transform = Transform3D(-1, 0, 5.323755e-05, 0, 1, 0, -5.323755e-05, 0, -1, -8.6
 [node name="Microwave" parent="." unique_id=1998705374 instance=ExtResource("16_ca42v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.441963, -0.004638195, -2.1639132)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=739437983]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.7401824, 3.0791926, 0.37719703)
+light_energy = 5.556
+light_indirect_energy = 4.665
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+light_specular = 6.47
+area_size = Vector2(22.18399, 13.006517)
+
 [connection signal="lockToilets" from="MainDoor" to="ToiletDoor" method="_on_main_door_lock_toilets"]
 [connection signal="reduceSinkPrice" from="MainDoor" to="Sink" method="_on_main_door_reduce_sink_price"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

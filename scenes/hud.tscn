@@ -215,6 +215,7 @@ text = "100$"
 label_settings = SubResource("LabelSettings_qwp2v")
 
 [node name="Inventory" type="VBoxContainer" parent="." unique_id=258973939]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
