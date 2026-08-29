@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fr0sjtacmfb4"]
+
+[ext_resource type="PackedScene" uid="uid://b0hb31nx8pksd" path="res://assets/sink.glb" id="1_6vnpx"]
+[ext_resource type="Script" uid="uid://g7qfb30mmdwt" path="res://scenes/sink.gd" id="1_v2k6t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(2.0097656, 1.9488525, 2.2417603)
+
+[node name="sink" type="StaticBody3D" unique_id=406162830]
+collision_layer = 3
+script = ExtResource("1_v2k6t")
+
+[node name="sink" parent="." unique_id=1362618542 instance=ExtResource("1_6vnpx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633644536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029296875, 0.97101593, -0.12271118)
+shape = SubResource("BoxShape3D_mjfn4")

@@ -22,7 +22,7 @@ func _on_game_timer_timeout() -> void:
 	$"GameTimer".start()
 
 func _ready():
-	init_game(30)
+	init_game(15)
 
 func _process(_delta):
 	if gametime == nextThirst:
@@ -40,8 +40,7 @@ func dealHungerToPlayer():
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	# $"Player".dealDrink(randi_range(10, 25))
-	$"Player".dealDrink(110)
+	$"Player".dealDrink(randi_range(10, 25))
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout

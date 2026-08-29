@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://gi0c3vnvwin0"]
+
+[ext_resource type="PackedScene" uid="uid://c7jo03s4wkkhj" path="res://assets/table.glb" id="1_dpx8v"]
+[ext_resource type="Script" uid="uid://bjrv4qrd2d37m" path="res://scripts/cooking_table.gd" id="1_r2prp"]
+[ext_resource type="PackedScene" uid="uid://cwiunfkkoodjv" path="res://assets/plate.glb" id="2_r2prp"]
+[ext_resource type="Script" uid="uid://ciqb0bnyyjxaj" path="res://scripts/inventory_view.gd" id="4_2kvxi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7hiu"]
+size = Vector3(3.0683289, 1.8549805, 1.9868774)
+
+[sub_resource type="SystemFont" id="SystemFont_potab"]
+font_names = PackedStringArray("Open Sans")
+font_weight = 675
+
+[sub_resource type="Theme" id="Theme_mjfn4"]
+Button/fonts/font = SubResource("SystemFont_potab")
+
+[node name="CookingTable" type="StaticBody3D" unique_id=366976154]
+collision_layer = 3
+script = ExtResource("1_r2prp")
+
+[node name="table" parent="." unique_id=1792065441 instance=ExtResource("1_dpx8v")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1419000244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040130615, 0.9316679, -0.004058838)
+shape = SubResource("BoxShape3D_q7hiu")
+
+[node name="plate" parent="." unique_id=1486275911 instance=ExtResource("2_r2prp")]
+transform = Transform3D(0.2663185, 0, 0, 0, 0.2663185, 0, 0, 0, 0.2663185, -0.033655733, 1.8880775, 0.57152367)
+
+[node name="InventoryView" type="Control" parent="." unique_id=1781052404]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -239.0
+offset_right = 191.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("4_2kvxi")
+
+[node name="Panel" type="Panel" parent="InventoryView" unique_id=347797433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryView/Panel" unique_id=78253229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_mjfn4")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="InventoryView/Panel/ScrollContainer" unique_id=1465040445]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2

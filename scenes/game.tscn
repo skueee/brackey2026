@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b10540qe4jw4t" path="res://assets/armchair.glb" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://bgiiltvvongi1" path="res://assets/tv.glb" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cckxrs4tqi2im" path="res://scenes/dialog.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://fr0sjtacmfb4" path="res://scenes/sink.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://gi0c3vnvwin0" path="res://scenes/cooking_table.tscn" id="13_kvuet"]
 
 [node name="Game" type="Node3D" unique_id=856012762]
 script = ExtResource("1_vtaks")
@@ -50,6 +52,12 @@ transform = Transform3D(0.54213744, 0, 0, 0, 0.54213744, 0, 0, 0, 0.54213744, -1
 [node name="GameTimer" type="Timer" parent="." unique_id=714791484]
 
 [node name="Dialog" parent="." unique_id=1707710170 instance=ExtResource("11_kvpfn")]
+
+[node name="sink" parent="." unique_id=406162830 instance=ExtResource("12_dinhu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.127735, 0.0013253689, -4.5077505)
+
+[node name="CookingTable" parent="." unique_id=366976154 instance=ExtResource("13_kvuet")]
+transform = Transform3D(-1, 0, 5.323755e-05, 0, 1, 0, -5.323755e-05, 0, -1, -8.669621, -0.004637718, 4.0777893)
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 

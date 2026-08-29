@@ -90,3 +90,6 @@ func healDrink(heal: int):
 func addToInventory(object: int):
 	inventory.append(object)
 	%HUD.updateInventory(inventory)
+	
+func removeFromInventory(object: int):
+	inventory.erase(object)
