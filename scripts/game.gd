@@ -31,33 +31,22 @@ func _process(_delta):
 		dealThirstToPlayer()
 	elif gametime == nextHunger:
 		dealHungerToPlayer()
-	if gametime == nextDamage and $"Player".hunger <= 0 or gametime == nextDamage and $"Player".drink <= 0:
-		dealDamageWhenNeeded()
-		nextDamage -= 1
 	if gametime == nextSpawn and !$MainDoor.someone_is_there:
 		spawnSomeone()
 	if gametime <= 0:
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 
 func dealHungerToPlayer():
-	$"Player".dealHunger(randi_range(5, 20))
+	$"Player".dealHunger(randi_range(20, 50))
 	if playerHungerTimeout < 15:
 		playerHungerTimeout -= 2
 	nextHunger -= playerHungerTimeout
 
 func dealThirstToPlayer():
-	$"Player".dealDrink(randi_range(10, 25))
+	$"Player".dealDrink(randi_range(15, 35))
 	if playerThirstTimeout < 10:
 		playerThirstTimeout -= 3
 	nextThirst -= playerThirstTimeout
-	
-func dealDamageWhenNeeded():
-	var damage : int = 0
-	if $"Player".drink <= 0:
-		damage += 10
-	if $"Player".hunger <= 0:
-		damage += 10
-	$"Player".dealDamage(damage)
 	
 func spawnSomeone():
 	$MainDoor.enablePerson()

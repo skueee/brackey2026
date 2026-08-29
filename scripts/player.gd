@@ -60,8 +60,8 @@ func _process(_delta):
 				%HUD.DisplayText("Press E to interact", 0)
 			if Input.is_action_just_pressed("interact"):
 				target.interact()
-	if health < 0:
-		get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+#	if health < 0 or hunger < 0 or drink < 0:
+#		get_tree().change_scene_to_file("res://scenes/gameover.tscn")
 
 func dealDamage(damage: int):
 	health -= damage

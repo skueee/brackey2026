@@ -8,13 +8,16 @@ func interact():
 	var player = get_node("/root/Game/Player")
 	var HUD = get_node("/root/Game/Player/HUD")
 	
-	if player.drink + heal < 101:
-		player.healDrink(heal)
-		player.takeMoney(price)
-		price += 1
-		interact_label = "Press E to drink water\n(" + str(price) + "$)"
+	if player.money >= price:
+		if player.drink + heal < 101:
+			player.healDrink(heal)
+			player.takeMoney(price)
+			price += 1
+			interact_label = "Press E to drink water\n(" + str(price) + "$)"
+		else:
+			HUD.DisplayText("You are not thirsty enough", 1, 2.0)
 	else:
-		HUD.DisplayText("You are not thirsty enough", 1, 2.0)
+		HUD.DisplayText("You dont have enough money", 1, 2.0)
 
 func reducePrice():
 	var reduce = randi_range(1, price)
