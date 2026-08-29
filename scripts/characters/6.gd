@@ -36,6 +36,7 @@ func steal(player : Node):
 	var HUD = player.find_child("HUD")
 	
 	player.dealDamage(10)
-	var to_steal = player.inventory.pick_random()
-	player.removeFromInventory(to_steal)
+	if player.inventory.size > 0:
+		var to_steal = player.inventory.pick_random()
+		player.removeFromInventory(to_steal)
 	HUD.DisplayText("You just got stealth by a visitor...", 1, 5)

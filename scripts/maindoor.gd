@@ -7,7 +7,7 @@ var someone_is_there : bool = false
 var current_person_id : int
 
 # Group 2 as way fewer chances to get selected
-var group1 : Array = [1]
+var group1 : Array = [1, 2, 3, 4, 5, 6, 7]
 var group2 : Array
 
 func selectRandomPerson():
@@ -26,12 +26,14 @@ func enablePerson():
 		group2.append(current_person_id)
 		
 func disablePerson():
+	get_node("/root/Game").startSpawnTimeout()
 	current_person_id = 0
 	someone_is_there = false
 
 func interact():
 	if someone_is_there:
 		executeCharacter(current_person_id)
+		disablePerson()
 	else:
 		get_node("/root/Game/Player/HUD").DisplayText("No one is there", 1, 0.8)
 
@@ -83,6 +85,5 @@ func executeActions(actions: Array, character):
 		elif i[0] == "emit_signal":
 			emit_signal(i[1])
 	
-func _ready() -> void:
-	enablePerson()
-	
+func playAudio():
+	$AudioStreamPlayer3D.play()

@@ -11,6 +11,8 @@ var nextThirst: int = gametime - playerThirstTimeout
 
 var nextDamage: int = gametime - 1
 
+var nextSpawn = gametime - randi_range(10, 15)
+
 func init_game(time):
 	var unit_duration: float = snapped((10.0 * 60.0)/10080 * time, 0.01)
 	$"GameTimer".wait_time = unit_duration
@@ -32,6 +34,8 @@ func _process(_delta):
 	if gametime == nextDamage and $"Player".hunger <= 0 or gametime == nextDamage and $"Player".drink <= 0:
 		dealDamageWhenNeeded()
 		nextDamage -= 1
+	if gametime == nextSpawn and !$MainDoor.someone_is_there:
+		spawnSomeone()
 	if gametime <= 0:
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 
@@ -55,3 +59,11 @@ func dealDamageWhenNeeded():
 		damage += 10
 	$"Player".dealDamage(damage)
 	
+func spawnSomeone():
+	$MainDoor.enablePerson()
+	$MainDoor.playAudio()
+	$"Player/HUD".DisplayText("Someone is at the door !", 2, 3)
+	
+func startSpawnTimeout():
+	var timeout = randi_range(15, 35)
+	nextSpawn = gametime - timeout
