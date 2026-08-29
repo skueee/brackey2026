@@ -48,9 +48,13 @@ func hideTextBox():
 
 func goToNextText():
 	if next_text_index < current_text.size():
+		$AudioStreamPlayer.pitch_scale = 1.3
+		$AudioStreamPlayer.play()
 		displayLine(current_text[next_text_index])
 		next_text_index += 1
 	else:
+		$AudioStreamPlayer.pitch_scale = 1.0
+		$AudioStreamPlayer.play()
 		hideTextBox()
 
 func displayChoice(question: String, choicea: String, choiceb: String, hide_bg: bool = false):
@@ -65,6 +69,8 @@ func displayChoice(question: String, choicea: String, choiceb: String, hide_bg: 
 	_second_choice.add_theme_color_override("font_color", question_inactive_color)
 	
 func nextChoice():
+	$AudioStreamPlayer.pitch_scale = 1.3
+	$AudioStreamPlayer.play()
 	current_choice = !current_choice
 	if current_choice == true:
 		_first_choice.add_theme_color_override("font_color", question_active_color)
@@ -74,6 +80,8 @@ func nextChoice():
 		_first_choice.add_theme_color_override("font_color", question_inactive_color)
 		
 func choiceInteract():
+	$AudioStreamPlayer.pitch_scale = 1.0
+	$AudioStreamPlayer.play()
 	question_active = false
 	$Choice.visible = false
 	$HideScreen.visible = false

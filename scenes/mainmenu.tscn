@@ -1,6 +1,39 @@
 [gd_scene format=3 uid="uid://b5ewp582j3il3"]
 
 [ext_resource type="Script" uid="uid://cxqhmhnp1jm5m" path="res://scripts/mainmenu.gd" id="1_5mbse"]
+[ext_resource type="FontFile" uid="uid://cqskeaaah2635" path="res://assets/RobotoSerif.ttf" id="2_natt5"]
+
+[sub_resource type="FontVariation" id="FontVariation_2uyht"]
+base_font = ExtResource("2_natt5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uywes"]
+bg_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_r3g3c"]
+Button/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = SubResource("FontVariation_2uyht")
+Button/styles/normal = SubResource("StyleBoxFlat_uywes")
+Label/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+VBoxContainer/constants/separation = 16
+
+[sub_resource type="FontVariation" id="FontVariation_potab"]
+base_font = ExtResource("2_natt5")
+variation_opentype = {
+1196572996: -50,
+1869640570: 40,
+2003072104: 113,
+2003265652: 600
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
+font = SubResource("FontVariation_potab")
+font_size = 56
+font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
 
 [node name="Mainmenu" type="Control" unique_id=1373687733]
 layout_mode = 3
@@ -11,6 +44,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5mbse")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=275881765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2509804, 0.14509805, 0.011764706, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=902772689]
 layout_mode = 1
 anchors_preset = 8
@@ -18,12 +60,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.5
-offset_top = -15.5
-offset_right = 20.5
-offset_bottom = 15.5
+offset_left = -43.75
+offset_top = -19.5
+offset_right = 43.75
+offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_r3g3c")
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=274535571]
+layout_mode = 2
+text = "The House"
+label_settings = SubResource("LabelSettings_mjfn4")
+horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=411141802]
 layout_mode = 2

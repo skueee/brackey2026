@@ -59,6 +59,9 @@ func _process(_delta):
 			else:
 				%HUD.DisplayText("Press E to interact", 0)
 			if Input.is_action_just_pressed("interact"):
+				var stream = load("res://assets/Blip2.wav")
+				$AudioStreamPlayer.set_stream(stream)
+				$AudioStreamPlayer.play()
 				target.interact()
 	if health < 0 or hunger < 0 or drink < 0:
 		get_tree().change_scene_to_file("res://scenes/gameover.tscn")

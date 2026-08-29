@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://0tg6h73qysd8"]
+
+[ext_resource type="Script" uid="uid://ciqb0bnyyjxaj" path="res://scripts/inventory_view.gd" id="1_i474e"]
+[ext_resource type="FontFile" uid="uid://cqskeaaah2635" path="res://assets/RobotoSerif.ttf" id="2_c1v36"]
+
+[sub_resource type="FontVariation" id="FontVariation_2uyht"]
+base_font = ExtResource("2_c1v36")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uywes"]
+bg_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_potab"]
+bg_color = Color(0.25, 0.143125, 0.012500003, 0.89411765)
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_c74dy"]
+Button/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+Button/fonts/font = SubResource("FontVariation_2uyht")
+Button/styles/normal = SubResource("StyleBoxFlat_uywes")
+Label/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_potab")
+
+[node name="InventoryView" type="Control" unique_id=1687886753]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -239.0
+offset_right = 191.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("1_i474e")
+
+[node name="Panel" type="Panel" parent="." unique_id=132631607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_c74dy")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1403308711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=2120409511]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2

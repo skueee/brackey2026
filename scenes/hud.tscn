@@ -2,13 +2,30 @@
 
 [ext_resource type="Script" uid="uid://dx64evyf3xd5c" path="res://hud.gd" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://d3wlkxesgitnf" path="res://assets/heart.png" id="2_oo0fn"]
+[ext_resource type="FontFile" uid="uid://cqskeaaah2635" path="res://assets/RobotoSerif.ttf" id="2_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://bg3dd0qbsqgig" path="res://assets/fork.png" id="3_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://dpmuqyyil0hay" path="res://assets/water.png" id="4_6fi6k"]
 
-[sub_resource type="SystemFont" id="SystemFont_5ysmq"]
-font_names = PackedStringArray("SpaceMono Nerd Font")
-font_weight = 650
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_r8puk"]
+base_font = ExtResource("2_uo2fv")
+variation_opentype = {
+1196572996: 100,
+1869640570: 10,
+2003072104: 100,
+2003265652: 400
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ke020"]
+font = SubResource("FontVariation_r8puk")
+
+[sub_resource type="FontVariation" id="FontVariation_mt7yr"]
+base_font = ExtResource("2_uo2fv")
+variation_opentype = {
+1196572996: 0,
+1869640570: 20,
+2003072104: 50,
+2003265652: 796
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
 bg_color = Color(0, 0, 0, 1)
@@ -24,7 +41,7 @@ corner_detail = 1
 
 [sub_resource type="Theme" id="Theme_mjfn4"]
 HBoxContainer/constants/separation = 16
-ProgressBar/fonts/font = SubResource("SystemFont_5ysmq")
+ProgressBar/fonts/font = SubResource("FontVariation_mt7yr")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hd3ao")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_5pdws")
 
@@ -55,10 +72,43 @@ border_width_bottom = 3
 border_color = Color(0.35686275, 0.43137255, 0.88235295, 1)
 corner_detail = 1
 
+[sub_resource type="FontVariation" id="FontVariation_3gj0k"]
+base_font = ExtResource("2_uo2fv")
+variation_opentype = {
+1196572996: 100,
+1869640570: 20,
+2003072104: 150,
+2003265652: 900
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_qwp2v"]
+font = SubResource("FontVariation_3gj0k")
+font_color = Color(0.28627452, 0.72156864, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_hvwf0"]
+base_font = ExtResource("2_uo2fv")
+variation_opentype = {
+1196572996: 0,
+1869640570: 10,
+2003072104: 100,
+2003265652: 750
+}
+
 [sub_resource type="Theme" id="Theme_dnlm0"]
+default_font = SubResource("FontVariation_hvwf0")
 default_font_size = 21
 
+[sub_resource type="FontVariation" id="FontVariation_taj7i"]
+base_font = ExtResource("2_uo2fv")
+variation_opentype = {
+1196572996: 100,
+1869640570: 8,
+2003072104: 100,
+2003265652: 400
+}
+
 [sub_resource type="Theme" id="Theme_potab"]
+default_font = SubResource("FontVariation_taj7i")
 default_font_size = 13
 
 [node name="HUD" type="CanvasLayer" unique_id=1894029955]
@@ -82,6 +132,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 text = "Lorem Ipsum"
+label_settings = SubResource("LabelSettings_ke020")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -161,9 +212,9 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2879999, 0.72, 0, 1)
 text = "100$"
+label_settings = SubResource("LabelSettings_qwp2v")
 
 [node name="Inventory" type="VBoxContainer" parent="." unique_id=258973939]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

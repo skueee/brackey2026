@@ -1,6 +1,37 @@
 [gd_scene format=3 uid="uid://hxykpytk210w"]
 
 [ext_resource type="Script" uid="uid://va1bi7f6j6kj" path="res://scripts/gameover.gd" id="1_ncp31"]
+[ext_resource type="FontFile" uid="uid://cqskeaaah2635" path="res://assets/RobotoSerif.ttf" id="2_dy3ie"]
+
+[sub_resource type="FontVariation" id="FontVariation_2uyht"]
+base_font = ExtResource("2_dy3ie")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uywes"]
+bg_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.86, 0.67366666, 0.43, 0.23529412)
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_2mkfd"]
+Button/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+Button/fonts/font = SubResource("FontVariation_2uyht")
+Button/styles/normal = SubResource("StyleBoxFlat_uywes")
+Label/colors/font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_h8i2o"]
+base_font = ExtResource("2_dy3ie")
+variation_opentype = {
+1196572996: 0,
+1869640570: 8,
+2003072104: 100,
+2003265652: 600
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3d26k"]
+font = SubResource("FontVariation_h8i2o")
+font_size = 33
+font_color = Color(0.9137255, 0.84705883, 0.7372549, 1)
 
 [node name="Gameover" type="Control" unique_id=1444850852]
 layout_mode = 3
@@ -15,7 +46,7 @@ script = ExtResource("1_ncp31")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
+color = Color(0.2509804, 0.14509805, 0.011764706, 1)
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=917373111]
 layout_mode = 1
@@ -30,12 +61,14 @@ offset_right = 112.5
 offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_2mkfd")
 theme_override_constants/separation = 19
 
 [node name="Title" type="Label" parent="HBoxContainer" unique_id=1860401123]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Game Over..."
+label_settings = SubResource("LabelSettings_3d26k")
 horizontal_alignment = 1
 
 [node name="Quit" type="Button" parent="HBoxContainer" unique_id=384481060]

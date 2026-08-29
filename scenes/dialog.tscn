@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bripj0jlpaevg" path="res://assets/dialogbox.png" id="1_pkx4w"]
 [ext_resource type="Script" uid="uid://dt73eunofrcnc" path="res://scripts/dialog.gd" id="1_tmfn4"]
+[ext_resource type="FontFile" uid="uid://cqskeaaah2635" path="res://assets/RobotoSerif.ttf" id="3_4wims"]
 [ext_resource type="Texture2D" uid="uid://ta8hlmasu44d" path="res://assets/arrow.png" id="3_auqi6"]
+[ext_resource type="AudioStream" uid="uid://c7nwfjhodqdna" path="res://assets/Blip1.wav" id="4_auqi6"]
 
 [sub_resource type="Theme" id="Theme_potab"]
 
@@ -17,13 +19,17 @@ region_rect = Rect2(0, 0, 5000, 5000)
 [sub_resource type="Theme" id="Theme_tmfn4"]
 Panel/styles/panel = SubResource("StyleBoxTexture_36pgd")
 
-[sub_resource type="SystemFont" id="SystemFont_dy5yk"]
-font_names = PackedStringArray("SpaceMono Nerd Font Mono")
-font_weight = 999
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_yk3h5"]
+base_font = ExtResource("3_4wims")
+variation_opentype = {
+1196572996: 100,
+1869640570: 20,
+2003072104: 150,
+2003265652: 750
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_mjfn4"]
-font = SubResource("SystemFont_dy5yk")
+font = SubResource("FontVariation_yk3h5")
 font_size = 26
 font_color = Color(0, 0, 0, 1)
 
@@ -38,9 +44,19 @@ region_rect = Rect2(0, 0, 5000, 5000)
 [sub_resource type="Theme" id="Theme_dnlm0"]
 Panel/styles/panel = SubResource("StyleBoxTexture_g5cag")
 
+[sub_resource type="FontVariation" id="FontVariation_nui8v"]
+base_font = ExtResource("3_4wims")
+variation_opentype = {
+1196572996: 0,
+1869640570: 47,
+2003072104: 127,
+2003265652: 431
+}
+
 [sub_resource type="Theme" id="Theme_jjxn8"]
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_nui8v")
 
 [sub_resource type="Gradient" id="Gradient_4wims"]
 interpolation_mode = 2
@@ -53,10 +69,14 @@ fill = 1
 fill_from = Vector2(0.7222222, 0.525641)
 fill_to = Vector2(0.14957266, 0.6581197)
 
-[sub_resource type="SystemFont" id="SystemFont_mjfn4"]
-font_names = PackedStringArray("Noto Sans")
-font_weight = 999
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_mjfn4"]
+base_font = ExtResource("3_4wims")
+variation_opentype = {
+1196572996: 100,
+1869640570: 50,
+2003072104: 150,
+2003265652: 800
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjxn8"]
 texture = ExtResource("1_pkx4w")
@@ -65,13 +85,17 @@ texture_margin_bottom = 7.0
 
 [sub_resource type="Theme" id="Theme_g5cag"]
 Label/font_sizes/font_size = 44
-Label/fonts/font = SubResource("SystemFont_mjfn4")
+Label/fonts/font = SubResource("FontVariation_mjfn4")
 Panel/styles/panel = SubResource("StyleBoxTexture_jjxn8")
 
-[sub_resource type="SystemFont" id="SystemFont_tmfn4"]
-font_names = PackedStringArray("Noto Sans")
-font_weight = 700
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_potab"]
+base_font = ExtResource("3_4wims")
+variation_opentype = {
+1196572996: 0,
+1869640570: 20,
+2003072104: 50,
+2003265652: 900
+}
 
 [node name="Dialog" type="Control" unique_id=1707710170]
 layout_mode = 3
@@ -205,7 +229,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_tmfn4")
+theme_override_fonts/font = SubResource("FontVariation_potab")
 theme_override_font_sizes/font_size = 30
 text = "Question"
 horizontal_alignment = 1
@@ -228,11 +252,13 @@ alignment = 1
 [node name="FirstChoiceLabel" type="Label" parent="Choice/VBoxContainer/Choice/HBoxContainer" unique_id=81375645]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 33
 text = "Yes"
 
 [node name="SecondChoiceLabel" type="Label" parent="Choice/VBoxContainer/Choice/HBoxContainer" unique_id=1946863666]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
-theme_override_font_sizes/font_size = 33
 text = "No"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=488635945]
+stream = ExtResource("4_auqi6")
+pitch_scale = 1.3
