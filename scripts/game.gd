@@ -46,7 +46,7 @@ func dealThirstToPlayer():
 	nextThirst -= playerThirstTimeout
 	
 func dealDamageWhenNeeded():
-	var damage : int
+	var damage : int = 0
 	if $"Player".drink <= 0:
 		damage += 10
 	if $"Player".hunger <= 0:

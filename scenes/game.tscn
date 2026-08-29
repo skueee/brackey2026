@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cckxrs4tqi2im" path="res://scenes/dialog.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://fr0sjtacmfb4" path="res://scenes/sink.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://gi0c3vnvwin0" path="res://scenes/cooking_table.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cyy3lsj24ue3d" path="res://scenes/microwave.tscn" id="16_ca42v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
 size = Vector3(1.9804688, 3.9726563, 0.5722656)
@@ -80,6 +81,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 
 [node name="CookingTable" parent="." unique_id=366976154 instance=ExtResource("13_kvuet")]
 transform = Transform3D(-1, 0, 5.323755e-05, 0, 1, 0, -5.323755e-05, 0, -1, -8.669621, -0.004637718, 4.0777893)
+
+[node name="Microwave" parent="." unique_id=1998705374 instance=ExtResource("16_ca42v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.441963, -0.004638195, -2.1639132)
 
 [connection signal="lockToilets" from="MainDoor" to="ToiletDoor" method="_on_main_door_lock_toilets"]
 [connection signal="reduceSinkPrice" from="MainDoor" to="Sink" method="_on_main_door_reduce_sink_price"]

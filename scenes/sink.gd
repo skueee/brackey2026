@@ -2,13 +2,14 @@ extends StaticBody3D
 
 var price = 3
 var interact_label = "Press E to drink water\n(" + str(price) + "$)"
+var heal = 15
 
 func interact():
 	var player = get_node("/root/Game/Player")
 	var HUD = get_node("/root/Game/Player/HUD")
 	
-	if player.drink < 75:
-		player.healDrink(15)
+	if player.drink + heal < 101:
+		player.healDrink(heal)
 		player.takeMoney(price)
 		price += 1
 		interact_label = "Press E to drink water\n(" + str(price) + "$)"

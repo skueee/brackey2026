@@ -8,12 +8,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7hiu"]
 size = Vector3(3.0683289, 1.8549805, 1.9868774)
 
-[sub_resource type="SystemFont" id="SystemFont_potab"]
+[sub_resource type="SystemFont" id="SystemFont_2kvxi"]
 font_names = PackedStringArray("Open Sans")
 font_weight = 675
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_mjfn4"]
-Button/fonts/font = SubResource("SystemFont_potab")
+Button/fonts/font = SubResource("SystemFont_2kvxi")
 
 [node name="CookingTable" type="StaticBody3D" unique_id=366976154]
 collision_layer = 3

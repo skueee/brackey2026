@@ -89,7 +89,7 @@ func updateInventory(inventory: Array):
 			var object = ObjectScript.new()
 			inventory_lines.append("- " + object.object_name + " (x" + str(freq) + ")")
 
-		var inventory_text : String
+		var inventory_text : String = ""
 		for i in inventory_lines:
 			inventory_text += String(i) + "\n"
 		

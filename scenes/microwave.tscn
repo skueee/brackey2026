@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cyy3lsj24ue3d"]
+
+[ext_resource type="Script" uid="uid://cyap05icg8ow6" path="res://scripts/microwave.gd" id="1_h1mfc"]
+[ext_resource type="PackedScene" uid="uid://24yk6v1th46h" path="res://assets/microwave_table.glb" id="1_tqfsw"]
+[ext_resource type="PackedScene" uid="uid://b8hsna0v7moyb" path="res://assets/microwave.glb" id="2_270ka"]
+[ext_resource type="Script" uid="uid://ciqb0bnyyjxaj" path="res://scripts/inventory_view.gd" id="4_bq2ef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjfn4"]
+size = Vector3(1.8272095, 2.1523438, 1.822998)
+
+[sub_resource type="SystemFont" id="SystemFont_potab"]
+font_names = PackedStringArray("Open Sans")
+font_weight = 675
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_rivs7"]
+Button/fonts/font = SubResource("SystemFont_potab")
+
+[node name="Microwave" type="StaticBody3D" unique_id=1998705374]
+collision_layer = 3
+script = ExtResource("1_h1mfc")
+
+[node name="microwave_table" parent="." unique_id=425281815 instance=ExtResource("1_tqfsw")]
+transform = Transform3D(0.6849043, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4302855, 0)
+
+[node name="microwave" parent="." unique_id=651342781 instance=ExtResource("2_270ka")]
+transform = Transform3D(0.43822384, 0, 0, 0, 0.43822384, 0, 0, 0, 0.43822384, 0, 1.8271435, 0.0089178085)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1530364497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00039672852, 1.0796688, -0.00012207031)
+shape = SubResource("BoxShape3D_mjfn4")
+
+[node name="InventoryView" type="Control" parent="." unique_id=672988088]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -239.0
+offset_right = 191.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("4_bq2ef")
+
+[node name="Panel" type="Panel" parent="InventoryView" unique_id=794366167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InventoryView/Panel" unique_id=630689534]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_rivs7")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="InventoryView/Panel/ScrollContainer" unique_id=759219381]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
