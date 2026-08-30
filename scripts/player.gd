@@ -68,6 +68,9 @@ func _process(_delta):
 
 func dealDamage(damage: int):
 	health -= damage
+	var stream = load("res://assets/Hit1.wav")
+	$AudioStreamPlayer.set_stream(stream)
+	$AudioStreamPlayer.play()
 
 func dealHunger(damage: int):
 	hunger -= damage
