@@ -48,8 +48,8 @@ _subresources={
 },
 "photo": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://materials/photo.tres",
-"use_external/path": "uid://tslaosehxrm3"
+"use_external/fallback_path": "res://assets/photo.tres",
+"use_external/path": "uid://ds30vff8vda7g"
 }
 }
 }
