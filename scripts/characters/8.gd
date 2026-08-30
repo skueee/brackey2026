@@ -22,8 +22,8 @@ var dialogues = ["Hey, um, I know wo dont know each other, but do you want some 
 # change_drink : damage (int)
 var next_action = [
 	[
-		["give_money", 25],
-		["dialogue", ["Without that, life would be a [shake rate=20.0 level=5 connected=1]bit too diffcult[/shake]"]]
+		["dialogue", ["Without that, life would be a [shake rate=20.0 level=5 connected=1]bit too diffcult[/shake]"]],
+		["give_money", 25]
 	],
 	[
 		["dialogue", ["Oh, uh, okay ?"]]
