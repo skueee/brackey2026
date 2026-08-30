@@ -5,7 +5,7 @@ var character_name = "Olicia"
 
 # The dialogues of the character
 # The last two ones should be the responses possible (agreement then refuse)
-var dialogues = ["Hey, hum, I'm looking for some money, but idk what I can do in exchange...", "Hum, wait... eh, isn't you water a bit expensive ?", "As a plumber, I could maybe help with that !", "Yeah, sure", "No, thanks"]
+var dialogues = ["Hey, hum, I'm looking for some money, but idk what I can do in exchange...", "Hum, wait... eh, isn't you water a bit [wave amp=50.0 freq=2.5 connected=1]expensive[/wave] ?", "As a plumber, I could maybe [wave amp=50.0 freq=2.5 connected=1]help with that[/wave] !", "Yeah, sure", "No, thanks"]
 
 # What to do when finishing a dialogue. 
 # Index 0 is for yes, index 1 for no

@@ -1,14 +1,14 @@
 extends Node
 
 # The name of the object
-var object_name = "Pizza"
+var object_name = "Cooked suspect medication"
 
 # Can be eating or drinking
 var use = "eating"
-var heal = 30
+var heal = 50
 
 # Damage dealt when using. Can be useful for non-cooked food
-var damage = 0
+var damage = 15
 
 # The item that is gave when cooking. 0 if it isn't cookable
 var cook_item = 0

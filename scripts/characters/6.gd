@@ -5,7 +5,7 @@ var character_name = "Marc"
 
 # The dialogues of the character
 # The last two ones should be the responses possible (agreement then refuse)
-var dialogues = ["Heyyy, I'm a profesionnaly professional repairer", "Can I professionaly repair you luxuriant toilet ?", "Sure, do your things !", "I'm not sure about that..."]
+var dialogues = ["Heyyy, I'm a [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]profesionnaly professional repairer[/rainbow]", "Can I [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]professionaly[/wave] repair you [wave amp=40.0 freq=4.0 connected=1]luxuriant toilet[/wave] ?", "Sure, do your things !", "I'm not sure about that..."]
 
 var stealCallable : Callable = steal
 
@@ -23,7 +23,7 @@ var stealCallable : Callable = steal
 # change_drink : damage (int)
 var next_action = [
 	[
-		["dialog", ["Yipeeee"]],
+		["dialog", ["[tornado radius=10.0 freq=1.0 connected=1]Yipeeee[/wave]"]],
 		["function", stealCallable]
 	],
 	[

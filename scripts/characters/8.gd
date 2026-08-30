@@ -5,7 +5,7 @@ var character_name = "Emelia"
 
 # The dialogues of the character
 # The last two ones should be the responses possible (agreement then refuse)
-var dialogues = ["Hey, um, I know wo dont know each other, but do you want some money ?", "Hell yeah !", "No, thanks"]
+var dialogues = ["Hey, um, I know wo dont know each other, but do you want some [rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]money[/rainbow] ?", "Hell yeah !", "No, thanks"]
 
 
 # What to do when finishing a dialogue. 
@@ -23,7 +23,7 @@ var dialogues = ["Hey, um, I know wo dont know each other, but do you want some 
 var next_action = [
 	[
 		["give_money", 25],
-		["dialogue", ["Without that, life would be a bit too diffcult"]]
+		["dialogue", ["Without that, life would be a [shake rate=20.0 level=5 connected=1]bit too diffcult[/shake]"]]
 	],
 	[
 		["dialogue", ["Oh, uh, okay ?"]]

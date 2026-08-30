@@ -5,7 +5,7 @@ var character_name = "Granny"
 
 # The dialogues of the character
 # The last two ones should be the responses possible (agreement then refuse)
-var dialogues = ["Hey little man", "I see you are hungry", "Do you want some cookies ?", "Oh... Um, yeah, cookies are bad for health...", "Maybe some vegetables then ?", "Of course !", "No, thanks."]
+var dialogues = ["Hi young man", "I can tell you are hungry...", "Do you want some cookies ?", "Oh... Um, yeah, cookies are bad for health...", "Maybe some vegetables then ?", "Of course !", "No, thanks."]
 var objects = [1, 1, 5, 8, 10]
 
 # What to do when finishing a dialogue. 

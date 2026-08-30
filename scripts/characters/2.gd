@@ -20,14 +20,17 @@ var dialogues = ["Heyyy !", "Man, can I tell you about what I was doing ?", "Yea
 # change_health : damage (int)
 # change_hungry : damage (int)
 # change_drink : damage (int)
-var next_action = [[
-	["dialog", ["So uh basically I was at the restaurant and it was [wave amp=50.0 freq=3.5 connected=1]soooo good[/wave] like you can't imagine","I took some [wave amp=50.0 freq=3.5 connected=1]reaaly[/wave] good drink"]],
-	["change_drink", randi_range(-20, -10)],
-	["dialog", ["With some [wave amp=50.0 freq=3.5 connected=1]excellent[/wave] burger and french fries. It was [rainbow freq=0.8 sat=0.5 val=0.8 speed=0.8]sooooo delicious[/rainbow]"]],
-	["change_hungry", randi_range(-25, -10)]
-	],[
-	["dialog", ["Oooooh, you're so not fun..."]]
-	]]
+var next_action = [
+	[
+		["dialog", ["So uh basically I was at the restaurant and it was [wave amp=50.0 freq=3.5 connected=1]soooo good[/wave] like you can't imagine","I took some [wave amp=50.0 freq=3.5 connected=1]reaaly[/wave] good drink"]],
+		["change_drink", randi_range(-20, -10)],
+		["dialog", ["With some [wave amp=50.0 freq=3.5 connected=1]excellent[/wave] burger and french fries. It was [rainbow freq=0.8 sat=0.5 val=0.8 speed=0.8]sooooo delicious[/rainbow]"]],
+		["change_hungry", randi_range(-25, -10)]
+	],
+	[
+		["dialog", ["Oooooh, you're so not fun..."]]
+	]
+]
 
 # Define here the actions of the character
 # func exampleAction():
