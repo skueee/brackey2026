@@ -36,3 +36,11 @@ scripts/                     The scripts
 ```
 
 There is more files, but they are not important to explain
+
+<p><a href="https://skueee.itch.io/the-house">
+<img width="88" height="31" alt="Itch page" src="https://github.com/user-attachments/assets/0a098477-cfd4-4636-b463-4254cca90739" />
+</a></p>
+
+<p><a href="https://hackatime.hackclub.com/@skue/project/brackey-2026">
+<img width="88" height="31" alt="button(2)" src="https://github.com/user-attachments/assets/65e86311-deae-44ea-9251-9508d57e9f12" />
+</a></p>
