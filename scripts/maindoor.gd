@@ -7,7 +7,7 @@ var someone_is_there : bool = false
 var current_person_id : int
 
 # Group 2 as way fewer chances to get selected
-var group1 : Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+var group1 : Array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 var group2 : Array
 
 func selectRandomPerson():

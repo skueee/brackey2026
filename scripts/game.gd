@@ -22,7 +22,7 @@ func _on_game_timer_timeout() -> void:
 	$"GameTimer".start()
 
 func _ready():
-	init_game(15)
+	init_game(10)
 
 func _process(_delta):
 	if gametime == nextThirst:

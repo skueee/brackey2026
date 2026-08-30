@@ -5,7 +5,7 @@ var character_name = "Marc"
 
 # The dialogues of the character
 # The last two ones should be the responses possible (agreement then refuse)
-var dialogues = ["Heyyy, I'm a [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]profesionnaly professional repairer[/rainbow]", "Can I [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]professionaly[/wave] repair you [wave amp=40.0 freq=4.0 connected=1]luxuriant toilet[/wave] ?", "Sure, do your things !", "I'm not sure about that..."]
+var dialogues = ["Heyyy, I'm a [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]profesionnaly professional repairer[/rainbow]", "Can I [rainbow freq=1.0 sat=0.6 val=0.8 speed=1.0]professionaly[/rainbow] repair you [wave amp=40.0 freq=4.0 connected=1]luxuriant toilet[/wave] ?", "Sure, do your things !", "I'm not sure about that..."]
 
 var stealCallable : Callable = steal
 
@@ -23,7 +23,7 @@ var stealCallable : Callable = steal
 # change_drink : damage (int)
 var next_action = [
 	[
-		["dialog", ["[tornado radius=10.0 freq=1.0 connected=1]Yipeeee[/wave]"]],
+		["dialog", ["[tornado radius=10.0 freq=1.0 connected=1]Yipeeee[/tornado]"]],
 		["function", stealCallable]
 	],
 	[
@@ -36,7 +36,7 @@ func steal(player : Node):
 	var HUD = player.find_child("HUD")
 	
 	player.dealDamage(10)
-	if player.inventory.size > 0:
+	if player.inventory.size() > 0:
 		var to_steal = player.inventory.pick_random()
 		player.removeFromInventory(to_steal)
 	HUD.DisplayText("You just got stealth by a visitor...", 1, 5)
